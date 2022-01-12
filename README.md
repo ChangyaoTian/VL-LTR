@@ -108,23 +108,23 @@ The `${CONFIG_PATH}` is the relative path of the corresponding configuration fil
 
 To train VL-LTR on a single node with 8 GPUs for:
 
-- pre-training stage, run:
+- Pre-training stage, run:
 
 ```sh
 bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
 ```
 
-- fine-tuning stage:
+- Fine-tuning stage:
 
-  - first, calculate the $\mathcal L_{\text{lin}}$ of each sentence for AnSS method by running this:
+  - First, calculate the $\mathcal L_{\text{lin}}$ of each sentence for AnSS method by running this:
 
   ```sh
   bash eval.sh ${CONFIG_PATH} 1 --eval-pretrain --select
   ```
 
-  ```
-  - then, running this:
-  ```
+
+  - Then, running this:
+
 
 ```sh
 bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
