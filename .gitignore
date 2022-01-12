@@ -1,0 +1,9 @@
+*.swp
+*.pyc
+*.ipynb
+
+**/__pycache__/**
+cached/*
+checkpoints/*
+data/*
+pretrained/*
