@@ -19,7 +19,7 @@ pip install mmcv==1.3.14
 Download and extract ImageNet train and val images from [here](http://image-net.org/).
 The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively.
 
-Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/imagenet.zip) into the same directory, and the directory tree of data is expected to be like this:
+Then download and extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/imagenet.zip) into the same directory, and the directory tree of data is expected to be like this:
 
 ```
 ./data/imagenet/
@@ -47,7 +47,7 @@ After that, download the CLIP's pretrained weight `RN50.pt` and `ViT-B-16.pt` in
 
 Download the `places365_standard` data from [here](http://places2.csail.mit.edu/download.html).
 
-Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
+Then download and extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
 
 ```
 ./data/places/
@@ -73,7 +73,7 @@ Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian
 
 Download the `iNaturalist 2018` data from [here](https://github.com/visipedia/inat_comp/tree/master/2018).
 
-Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/iNat.zip) into the same directory. The directory tree of data is expected to be like this:
+Then download and extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/iNat.zip) into the same directory. The directory tree of data is expected to be like this:
 
 ```
 ./data/iNat/
