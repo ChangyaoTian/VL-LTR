@@ -1,6 +1,5 @@
 # VL-LTR: Learning Class-wise Visual-Linguistic Representation for Long-Tailed Visual Recognition
 
-
 ## Usage
 
 First, install PyTorch 1.7.1+, torchvision 0.8.2+ and other required packages as follows：
@@ -13,15 +12,14 @@ pip install git+https://github.com/openai/CLIP.git
 pip install mmcv==1.3.14
 ```
 
-
 ## Data preparation
 
 ### ImageNet-LT
 
-Download and extract ImageNet train and val images from http://image-net.org/.
+Download and extract ImageNet train and val images from [here](http://image-net.org/).
 The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively.
 
-Then extract the wiki text into the same directory, and the directory tree of data is expected to be like this:
+Then extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/imagenet.zip) into the same directory, and the directory tree of data is expected to be like this:
 
 ```
 ./data/imagenet/
@@ -45,12 +43,11 @@ Then extract the wiki text into the same directory, and the directory tree of da
 
 After that, download the CLIP's pretrained weight `RN50.pt` and `ViT-B-16.pt` into the `pretrained` directory from https://github.com/openai/CLIP.
 
-
 ### Places-LT
 
 Download the `places365_standard` data from [here](http://places2.csail.mit.edu/download.html).
 
-The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
+Then extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
 
 ```
 ./data/places/
@@ -73,9 +70,10 @@ The directory tree of data is expected to be like this (almost the same as Image
 ```
 
 ### iNaturalist 2018
+
 Download the `iNaturalist 2018` data from [here](https://github.com/visipedia/inat_comp/tree/master/2018).
 
-The directory tree of data is expected to be like this:
+Then extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/iNat.zip) into the same directory. The directory tree of data is expected to be like this:
 
 ```
 ./data/iNat/
@@ -117,14 +115,16 @@ bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
 ```
 
 - fine-tuning stage:
-     - first, calculate the $\mathcal L_{\text{lin}}$ of each sentence for AnSS method by running this:
 
-    ```sh
-    bash eval.sh ${CONFIG_PATH} 1 --eval-pretrain --select
-    ```
+  - first, calculate the $\mathcal L_{\text{lin}}$ of each sentence for AnSS method by running this:
 
-      - then, running this:
+  ```sh
+  bash eval.sh ${CONFIG_PATH} 1 --eval-pretrain --select
+  ```
 
+  ```
+  - then, running this:
+  ```
 
 ```sh
 bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
@@ -132,23 +132,23 @@ bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
 
 The `${CONFIG_PATH}` is the relative path of the corresponding configuration file in the `config` directory.
 
-
 ## Results
 
 Below list our model's performance on ImageNet-LT, Places-LT, and iNaturalist 2018.
 
-|     Dataset      |  Backbone   | Top-1 Accuracy |
-| :--------------: | :---------: | :------------: |
-|   ImageNet-LT    |  ResNet-50  |      70.1      |
-|   ImageNet-LT    | ViT-Base-16 |      77.2      |
-|    Places-LT     |  ResNet-50  |      48.0      |
-|    Places-LT     | ViT-Base-16 |      50.1      |
-| iNaturalist 2018 |  ResNet-50  |      74.6      |
-| iNaturalist 2018 | ViT-Base-16 |      76.8      |
+|     Dataset     |  Backbone  |                                                  Top-1 Accuracy                                                  |
+| :--------------: | :---------: | :--------------------------------------------------------------------------------------------------------------: |
+|   ImageNet-LT   |  ResNet-50  |   [70.1](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_r50.zip "link to weights")   |
+|   ImageNet-LT   | ViT-Base-16 |  [77.2](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_vit16.zip "link to weights")  |
+|    Places-LT    |  ResNet-50  |     [48.0](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_r50.zip "link to weights")     |
+|    Places-LT    | ViT-Base-16 |    [50.1](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_vit16.zip "link to weights")    |
+| iNaturalist 2018 |  ResNet-50  |  [74.6](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_r50.zip "link to weights")  |
+| iNaturalist 2018 | ViT-Base-16 | [76.8](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_vit16.zip "link to weights") |
 
 For more detailed information, please refer to our [paper](https://arxiv.org/abs/2111.13579) directly.
 
 ## Citation
+
 If you are interested in our work, please cite as follows:
 
 ```
