@@ -17,7 +17,7 @@ pip install mmcv==1.3.14
 ### ImageNet-LT
 
 Download and extract ImageNet train and val images from [here](http://image-net.org/).
-The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val` folder respectively.
+The directory structure is the standard layout for the torchvision [`datasets.ImageFolder`](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder), and the training and validation data is expected to be in the `train/` folder and `val/` folder respectively.
 
 Then extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/imagenet.zip) into the same directory, and the directory tree of data is expected to be like this:
 
@@ -122,13 +122,11 @@ bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
   bash eval.sh ${CONFIG_PATH} 1 --eval-pretrain --select
   ```
 
-  ```
   - then, running this:
-  ```
 
-```sh
-bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
-```
+  ```sh
+  bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
+  ```
 
 The `${CONFIG_PATH}` is the relative path of the corresponding configuration file in the `config` directory.
 
