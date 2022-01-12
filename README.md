@@ -47,7 +47,7 @@ After that, download the CLIP's pretrained weight `RN50.pt` and `ViT-B-16.pt` in
 
 Download the `places365_standard` data from [here](http://places2.csail.mit.edu/download.html).
 
-Then download and extract the wiki text[(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
+Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
 
 ```
 ./data/places/
@@ -73,7 +73,7 @@ Then download and extract the wiki text[(link)](https://github.com/ChangyaoTian/
 
 Download the `iNaturalist 2018` data from [here](https://github.com/visipedia/inat_comp/tree/master/2018).
 
-Then download and extract the wiki text[(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/iNat.zip) into the same directory. The directory tree of data is expected to be like this:
+Then download and extract the wiki text [(link)](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/iNat.zip) into the same directory. The directory tree of data is expected to be like this:
 
 ```
 ./data/iNat/
@@ -138,12 +138,12 @@ Below list our model's performance on ImageNet-LT, Places-LT, and iNaturalist 20
 
 |     Dataset     |  Backbone  |   Top-1 Accuracy |  Download |
 | :--------------: | :---------: | :------------: | :------: |
-|   ImageNet-LT   |  ResNet-50  |   [70.1]   | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_r50.zip) |
-|   ImageNet-LT   | ViT-Base-16 |  [77.2]  | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_vit16.zip) |
-|    Places-LT    |  ResNet-50  |   [48.0] | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_r50.zip) |
-|    Places-LT    | ViT-Base-16 |    [50.1] | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_vit16.zip)    |
-| iNaturalist 2018 |  ResNet-50  |  [74.6]  | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_r50.zip)  |
-| iNaturalist 2018 | ViT-Base-16 | [76.8]   | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_vit16.zip) |
+|   ImageNet-LT   |  ResNet-50  |   70.1   | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_r50.zip) |
+|   ImageNet-LT   | ViT-Base-16 |  77.2  | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/imageNet-LT_vit16.zip) |
+|    Places-LT    |  ResNet-50  |   48.0 | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_r50.zip) |
+|    Places-LT    | ViT-Base-16 |    50.1 | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/places_vit16.zip)    |
+| iNaturalist 2018 |  ResNet-50  |  74.6  | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_r50.zip)  |
+| iNaturalist 2018 | ViT-Base-16 | 76.8   | [Weights](https://github.com/ChangyaoTian/VL-LTR/releases/download/checkpoints/inat_finetune_vit16.zip) |
 
 For more detailed information, please refer to our [paper](https://arxiv.org/abs/2111.13579) directly.
 
