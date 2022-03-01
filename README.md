@@ -83,7 +83,7 @@ Then download and extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR
   categories.json
   test2018.json
   train2018.json
-  val.json
+  val2018.json
 ```
 
 ## Evaluation
