@@ -45,7 +45,7 @@ After that, download the CLIP's pretrained weight `RN50.pt` and `ViT-B-16.pt` in
 
 ### Places-LT
 
-Download the `places365_standard` data from [here](http://places2.csail.mit.edu/download.html).
+Download the `places365_standard` data from [here](http://places2.csail.mit.edu/download.html). (For researchers in Chinese Mainland, you can download the long-tailed version directly from Baidu Netdisk [6x8u](https://pan.baidu.com/s/11rOZgolQwJlygZNq2XN9Fw).)
 
 Then download and extract the [wiki text](https://github.com/ChangyaoTian/VL-LTR/releases/download/text-corpus/places.zip) into the same directory. The directory tree of data is expected to be like this (almost the same as ImageNet-LT):
 
