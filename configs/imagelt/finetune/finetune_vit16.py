@@ -9,7 +9,6 @@ cfg = dict(
     loss_type="CE",
     two_branch=True,
 
-    use_mcloader=True,
     data_set='IMNET_LT',
     drop_last=True,
 

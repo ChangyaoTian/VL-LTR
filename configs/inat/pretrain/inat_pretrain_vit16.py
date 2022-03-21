@@ -7,7 +7,6 @@ cfg = dict(
     pretrain_cvlp=True,
     loss_type="smoothCE",
 
-    use_mcloader=True,
     data_set='INAT',
     drop_last=True,
     eval_pretrain=True,

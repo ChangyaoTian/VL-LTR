@@ -111,7 +111,7 @@ To train VL-LTR on a single node with 8 GPUs for:
 - Pre-training stage, run:
 
 ```sh
-bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
+bash dist_train_arun.sh ${CONFIG_PATH} 8
 ```
 
 - Fine-tuning stage:
@@ -125,7 +125,7 @@ bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
   - then, running this:
 
   ```sh
-  bash dist_train_arun.sh ${PARTITION} ${CONFIG_PATH} 8
+  bash dist_train_arun.sh ${CONFIG_PATH} 8
   ```
 
 The `${CONFIG_PATH}` is the relative path of the corresponding configuration file in the `config` directory.

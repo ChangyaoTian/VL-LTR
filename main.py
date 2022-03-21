@@ -36,7 +36,7 @@ def get_args_parser():
     parser.add_argument('--batch-size', default=128, type=int)
     parser.add_argument('--epochs', default=300, type=int)
     parser.add_argument('--config', required=True, type=str, help='config')
-    parser.add_argument('--pretrained-bert', default=None, type=str)
+    parser.add_argument('--pretrained-clip', default=None, type=str)
     parser.add_argument('--txt-embed-path', type=str, default=None, help='config')
     parser.add_argument('--vis-backbone-path', type=str, default=None, help='config')
     parser.add_argument('--two-branch', action='store_true', help='two branch output')
@@ -223,6 +223,7 @@ def get_args_parser():
                         help="Master node (rank 0)'s free port that needs to "
                              "be used for communication during distributed "
                              "training")
+    parser.add_argument("--local_rank", default=0, type=int)
     return parser
 
 

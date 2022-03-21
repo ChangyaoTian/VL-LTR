@@ -215,56 +215,21 @@ def save_on_master(*args, **kwargs):
 
 
 def init_distributed_mode(args):
-    if False:
-    # if args.dist_on_itp:
-        args.rank = int(os.environ['OMPI_COMM_WORLD_RANK'])
-        args.world_size = int(os.environ['OMPI_COMM_WORLD_SIZE'])
-        args.gpu = int(os.environ['OMPI_COMM_WORLD_LOCAL_RANK'])
-        args.dist_url = "tcp://%s:%s" % (os.environ['MASTER_ADDR'], os.environ['MASTER_PORT'])
-        os.environ['LOCAL_RANK'] = str(args.gpu)
-        os.environ['RANK'] = str(args.rank)
-        os.environ['WORLD_SIZE'] = str(args.world_size)
-        # ["RANK", "WORLD_SIZE", "MASTER_ADDR", "MASTER_PORT", "LOCAL_RANK"]
-    elif 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
+    if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
         args.rank = int(os.environ["RANK"])
         args.world_size = int(os.environ['WORLD_SIZE'])
         args.gpu = int(os.environ['LOCAL_RANK'])
-    elif 'SLURM_PROCID' in os.environ:
-        args.rank = int(os.environ['SLURM_PROCID'])
-        args.gpu = args.rank % torch.cuda.device_count()
-        
-        proc_id = int(os.environ['SLURM_PROCID'])
-        ntasks = int(os.environ['SLURM_NTASKS'])
-        node_list = os.environ['SLURM_NODELIST']
-        num_gpus = torch.cuda.device_count()
-        torch.cuda.set_device(proc_id % num_gpus)
-        import subprocess
-        addr = subprocess.getoutput(
-            f'scontrol show hostname {node_list} | head -n1')
-        # specify master port
-        os.environ['MASTER_PORT'] = str(args.port)
-        # use MASTER_ADDR in the environment variable if it already exists
-        if 'MASTER_ADDR' not in os.environ:
-            os.environ['MASTER_ADDR'] = addr
-        os.environ['WORLD_SIZE'] = str(ntasks)
-        os.environ['LOCAL_RANK'] = str(proc_id % num_gpus)
-        os.environ['RANK'] = str(proc_id)
     else:
         print('Not using distributed mode')
         args.distributed = False
         return
-
     args.distributed = True
-
     torch.cuda.set_device(args.gpu)
     args.dist_backend = 'nccl'
-    print('| distributed init (rank {}): {}, gpu {}'.format(
-        args.rank, args.dist_url, args.gpu), flush=True)
-    if 'SLURM_PROCID' in os.environ:
-        torch.distributed.init_process_group(backend=args.dist_backend)
-    else:
-        torch.distributed.init_process_group(backend=args.dist_backend, init_method=args.dist_url,
-                                             world_size=args.world_size, rank=args.rank)
+    print('| distributed init (rank {}, word {}): {}'.format(
+        args.rank, args.world_size, args.dist_url), flush=True)
+    torch.distributed.init_process_group(backend=args.dist_backend, init_method=args.dist_url,
+                                         world_size=args.world_size, rank=args.rank)
     torch.distributed.barrier()
     setup_for_distributed(args.rank == 0)
 
