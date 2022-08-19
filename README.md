@@ -1,4 +1,4 @@
-# VL-LTR: Learning Class-wise Visual-Linguistic Representation for Long-Tailed Visual Recognition
+# [ECCV 2022] VL-LTR: Learning Class-wise Visual-Linguistic Representation for Long-Tailed Visual Recognition
 
 ## Usage
 
